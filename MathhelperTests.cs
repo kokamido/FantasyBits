@@ -94,5 +94,35 @@ namespace ConsoleApplication2
         {
             Assert.AreEqual(MathHelper.RangeFromLineToPoint((0, 0), (1, 1), (0, 1)), Math.Sqrt(2)/2,0.000001);
         }
+
+        [Test]
+        public void GetAngle0()
+        {
+            Assert.AreEqual(MathHelper.GetAngle((1, 0), (-1, 1)), 3*Math.PI / 4.0, 0.0001);
+        }
+        
+        [Test]
+        public void GetAngle1()
+        {
+            Assert.AreEqual(MathHelper.GetAngle((0, 1), (1, 0)), Math.PI / 2.0, 0.0001);
+        }
+        
+        [Test]
+        public void GetAngle2()
+        {
+            Assert.AreEqual(MathHelper.GetAngle((0, 1), (0, 1)), 0, 0.0001);
+        }
+       
+        [Test]
+        public void GetAngle3()
+        {
+            Assert.AreEqual(MathHelper.GetAngle((0, 1), (1, 1)), Math.PI / 4, 0.0001);
+        }
+      
+        [Test]
+        public void GetAngle4()
+        {
+            Assert.AreEqual(MathHelper.GetAngle((1, 0), (5, 3)), Math.PI / 6, 0.05);
+        }
     }
 }

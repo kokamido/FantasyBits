@@ -27,6 +27,16 @@ namespace ConsoleApplication2
             return (attackVector.y - topBoardVector.y) / (attackVector.y - bottomBoardVector.y) < 0;
         }
 
+        public static double ScalarProduct((int x, int y) v0, (int x, int y) v1)
+        {
+            return v0.x * v1.x + v0.y * v1.y;
+        }
+
+        public static double GetAngle((int x, int y) v0, (int x, int y) v1)
+        {
+            return Math.Acos(ScalarProduct(v0, v1) / GetNorm(v0) / GetNorm(v1));
+        }
+
         public static double GetNorm((int x, int y) v)
         {
             return EuclideanRange((0, 0), (v.x, v.y));

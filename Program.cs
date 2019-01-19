@@ -14,6 +14,7 @@ namespace ConsoleApplication2
         {
             int myTeamId = int.Parse(Console.ReadLine());
             EnemyGoalCenter = myTeamId == 1 ? (-10, 3500) : (16010, 3500);
+            Console.Error.WriteLine(MySide);
             while (true)
                 logic.Turn(Helper.ReadInput());
         }
