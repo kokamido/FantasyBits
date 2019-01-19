@@ -7,7 +7,7 @@ namespace ConsoleApplication2
     {
         void Turn(GameState state);
     }
-    
+
     public class SimpleAi : ILogic
     {
         public void Turn(GameState state)
@@ -24,7 +24,7 @@ namespace ConsoleApplication2
 
         private void DoSomethingWithTheNearestSnaffle(GameObject wizard, GameObject snaffle)
         {
-            if(wizard.State == State.Grab)
+            if (wizard.State == State.Grab)
                 Console.WriteLine($"THROW {Game.EnemySide.x} {Game.EnemySide.y}");
             else
                 Console.WriteLine($"THROW {snaffle.X} {snaffle.Y}");
@@ -34,12 +34,11 @@ namespace ConsoleApplication2
         {
             var currentWizard = state.MyWizards.First(wiz => wiz.ID == (int) w);
             var otherWizard = state.MyWizards.First(wiz => wiz.ID != (int) w);
-            var snaffle = state.Snaffles.Where(s => MathHelper.EuclideanRange(s, currentWizard) <= MathHelper.EuclideanRange(s, otherWizard))
+            var snaffle = state.Snaffles.Where(s =>
+                    MathHelper.EuclideanRange(s, currentWizard) <= MathHelper.EuclideanRange(s, otherWizard))
                 .OrderBy(s => MathHelper.EuclideanRange(s, currentWizard))
                 .FirstOrDefault();
             return (currentWizard, snaffle);
         }
     }
-    
-   
 }

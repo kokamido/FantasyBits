@@ -36,7 +36,7 @@ namespace ConsoleApplication2
             OpponentScore = opponentScore;
         }
     }
-    
+
     public enum WizardId
     {
         First = 0,
