@@ -14,11 +14,21 @@ namespace ConsoleApplication2
         public int Vy;
     }
 
-    public class GameState
+    public class GameConsts
     {
         public const int WizardRadius = 400;
         public const int SnuffleRadius = 150;
         public const int BludgerRadius = 200;
+        public const int MaxSpeed = 150;
+        public const int MaxThrowStrength = 500;
+        public const int AccioCost  = 15;
+        public const int ObliviateCost  = 5;
+        public const int PetrificusCost  = 10;
+        public const int FlipendoCost  = 20;
+    }
+
+    public class GameState
+    {
         public readonly int MyMagic;
         public readonly int OpponentMagic;
         public readonly int MyScore;
@@ -35,12 +45,6 @@ namespace ConsoleApplication2
             MyScore = myScore;
             OpponentScore = opponentScore;
         }
-    }
-
-    public enum WizardId
-    {
-        First = 0,
-        Second = 1
     }
 
     public enum State

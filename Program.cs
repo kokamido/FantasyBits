@@ -4,15 +4,24 @@ namespace ConsoleApplication2
 {
     static class Game
     {
-        public static (int x, int y) EnemySide;
+        public static int FirstWizardId => EnemyGoalCenter.x == 16010 ? 0 : 2;
+        public static int SecondWizardId => EnemyGoalCenter.x == 16010 ? 1 : 3;
+        public static Side MySide => EnemyGoalCenter.x == 16010 ? Side.Left : Side.Right;
+        public static (int x, int y) EnemyGoalCenter;
         private static ILogic logic = new SimpleAi();
 
         public static void Main(string[] args)
         {
             int myTeamId = int.Parse(Console.ReadLine());
-            EnemySide = myTeamId == 1 ? (-10, 3250) : (16010, 3250);
+            EnemyGoalCenter = myTeamId == 1 ? (-10, 3500) : (16010, 3500);
             while (true)
                 logic.Turn(Helper.ReadInput());
         }
+    }
+
+    public enum Side
+    {
+        Left,
+        Right
     }
 }
