@@ -16,6 +16,9 @@ namespace ConsoleApplication2
 
     public class GameState
     {
+        public const int WizardRadius = 400;
+        public const int SnuffleRadius = 150;
+        public const int BludgerRadius = 200;
         public readonly int MyMagic;
         public readonly int OpponentMagic;
         public readonly int MyScore;
@@ -32,6 +35,12 @@ namespace ConsoleApplication2
             MyScore = myScore;
             OpponentScore = opponentScore;
         }
+    }
+    
+    public enum WizardId
+    {
+        First = 0,
+        Second = 1
     }
 
     public enum State
