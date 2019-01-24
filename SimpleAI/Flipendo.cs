@@ -42,15 +42,15 @@ namespace ConsoleApplication2
                                              MathHelper.EuclideanRange(ow, wizard) > GameConsts.WizardRadius * 2.1).All(
                                              w =>
                                                  MathHelper.RangeFromLineToPoint(wizard, s, w) >
-                                                 (GameConsts.WizardRadius + GameConsts.SnuffleRadius) * 2
+                                                 (GameConsts.WizardRadius + GameConsts.SnaffleRadius) * 2
                                                  || (double) (s.X - Game.EnemyGoalCenter.x) / (s.X - w.X) < 0)
                                          && state.Snaffles.Where(sn => sn.ID != s.ID).All(w =>
                                              MathHelper.RangeFromLineToPoint(wizard, s, w) >
-                                             (GameConsts.SnuffleRadius + GameConsts.SnuffleRadius) * 2
+                                             (GameConsts.SnaffleRadius + GameConsts.SnaffleRadius) * 2
                                              || (double) (s.X - Game.EnemyGoalCenter.x) / (s.X - w.X) < 0)
                                          && state.Bludgers.TrueForAll(w =>
                                              MathHelper.RangeFromLineToPoint(wizard, s, w) >
-                                             (GameConsts.BludgerRadius + GameConsts.SnuffleRadius) * 2
+                                             (GameConsts.BludgerRadius + GameConsts.SnaffleRadius) * 2
                                              || (double) (s.X - Game.EnemyGoalCenter.x) / (s.X - w.X) < 0));
                 return (wizard, snaffle);
             }

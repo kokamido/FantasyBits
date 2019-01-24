@@ -17,7 +17,7 @@ namespace ConsoleApplication2
     public class GameConsts
     {
         public const int WizardRadius = 400;
-        public const int SnuffleRadius = 150;
+        public const int SnaffleRadius = 150;
         public const int BludgerRadius = 200;
         public const int MaxSpeed = 150;
         public const int MaxThrowStrength = 500;
