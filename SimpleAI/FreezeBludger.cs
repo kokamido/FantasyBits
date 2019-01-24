@@ -26,10 +26,11 @@ namespace ConsoleApplication2
 
     private bool RUTrollFuckingFaggot(GameState state, GameObject b, GameObject wizard)
     {
-        return state.MyMagic >= GameConsts.ObliviateCost * 3
+        return state.MyMagic >= GameConsts.ObliviateCost * 5
                && MathHelper.EuclideanRange(b, wizard) <
                (GameConsts.WizardRadius + GameConsts.BludgerRadius) * RUTroll(b.Vx, b.Vy)
-               && MathHelper.GetAngle((b.X - wizard.X, b.Y - wizard.Y), (-b.Vx, -b.Vy)) < BludgerAngle;
+               && MathHelper.GetAngle((b.X - wizard.X, b.Y - wizard.Y), (-b.Vx, -b.Vy)) < BludgerAngle
+               && state.OpponentWizards.Min(w => MathHelper.EuclideanRange(w,b)>=500);
     }
 
     private (GameObject wizard, GameObject bludger) FuckUpBludger(GameState state, int wizardId)

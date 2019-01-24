@@ -53,7 +53,8 @@
         <Compile Include="SimpleAI\Flipendo.cs" />
         <Compile Include="SimpleAI\FreezeBludger.cs" />
         <Compile Include="SimpleAI\FreezeSnaffle.cs" />
-        <Compile Include="SimpleAI\MoveAndThrow.cs" />
+        <Compile Include="SimpleAI\Move.cs" />
+        <Compile Include="SimpleAI\Throw.cs" />
     </ItemGroup>
     <ItemGroup>
       <None Include="packages.config" />

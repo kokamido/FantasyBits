@@ -25,11 +25,12 @@ namespace ConsoleApplication2
  
         private readonly List<WizardAction> strategy = new List<WizardAction>
         {
-            new Accio(),
-            new Flipendo(),
+            new Flipendo(),                       
             new FreezeSnaffle(),
-            new FreezeBludger(),
-            new MoveAndThrow()
+            new Accio(),
+            new Throw(),
+            //new FreezeBludger(),
+            new Move()
         };
 
         public void Turn(GameState state)

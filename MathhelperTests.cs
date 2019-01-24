@@ -71,6 +71,12 @@ namespace ConsoleApplication2
         {
             Assert.IsFalse(MathHelper.AreIntersect((1,4),(2,2),(4,1),2));
         }
+        
+        [Test]
+        public void AreIntersect9()
+        {
+            Assert.IsFalse(MathHelper.AreIntersect((7586,675),(9249,673),(16010,3500),1700));
+        }
 
         [Test]
         public void RangeFromLineToPoint0()
