@@ -5,11 +5,11 @@ namespace ConsoleApplication2
 {
     public class FreezeSnaffle : SimpleAi.WizardAction
         {
-            private const int FreezeXDistanceSmall = 700;
+            private const int FreezeXDistanceSmall = 1000;
             private const int FreezeSpeedSmall = 155;
             private const int FreezeXDistanceBig = 1500;
             private const int FreezeSpeedBig = 200;           
-            private const int GoalSize = 1800;
+            private const int GoalSize = 2500;
             private int markedForFreezeSnaffleId;
             public override bool Action(GameState s, int wizardId)
             {

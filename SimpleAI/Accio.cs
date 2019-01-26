@@ -6,7 +6,7 @@ namespace ConsoleApplication2
     public class Accio : SimpleAi.WizardAction
     {
         private const int AccioMaxRange = 6000;
-        private const int AccioMinRange = 1000;
+        private const int AccioMinRange = 800;
         private int markedForAccioSnaffleId;
 
         public override bool Action(GameState s, int wizardId)
