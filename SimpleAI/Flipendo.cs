@@ -1,13 +1,14 @@
 using System;
 using System.Linq;
+using System.Net;
 
 namespace ConsoleApplication2
 {
     public class Flipendo : SimpleAi.WizardAction
     {
-        private const int GoalSize = 1800;
-        private const int FlipendoMaxRange = 400;
-        private const int FlipendoMinRange = 500;
+        private const int GoalSize = 1750;
+        private const int FlipendoMaxRange = 3000;
+        private const int FlipendoMinRange = 700;
 
         public override bool Action(GameState s, int wizardId)
         {
@@ -34,10 +35,10 @@ namespace ConsoleApplication2
             var wizard = state.MyWizards.First(w => w.ID == wizardId);
             var snaffle = state.Snaffles.Where(s =>
                     state.OpponentWizards.Any(ow => MathHelper.EuclideanRange(ow, s) < 15 * GameConsts.WizardRadius) ||
-                    Math.Abs(s.X - Game.EnemyGoalCenter.x) >= 6000)
+                    Math.Abs(s.X - Game.EnemyGoalCenter.x) >= 4000)
                 .FirstOrDefault(s => state.MyMagic >= GameConsts.FlipendoCost
                                      && s.State == State.NotGrab
-                                     && s.Vy <= 25
+                                     && (s.Vy <= 25 || Math.Abs(s.X-Game.EnemyGoalCenter.x)<500 && Math.Abs(s.Y-Game.EnemyGoalCenter.y)<GoalSize)
                                      && Math.Abs(s.X - Game.EnemyGoalCenter.x) <
                                      Math.Abs(wizard.X - Game.EnemyGoalCenter.x)
                                      && MathHelper.AreIntersect(wizard, s, Game.EnemyGoalCenter,

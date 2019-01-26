@@ -5,7 +5,7 @@ namespace ConsoleApplication2
 {
     public class Accio : SimpleAi.WizardAction
     {
-        private const int AccioMaxRange = 8000;
+        private const int AccioMaxRange = 6000;
         private const int AccioMinRange = 1000;
         private int markedForAccioSnaffleId;
 
@@ -45,11 +45,12 @@ namespace ConsoleApplication2
                 return (wizard, null);
             var res = state.Snaffles
                 .Where(s => s.ID != markedForAccioSnaffleId
+                            && MathHelper.EuclideanRange(wizard,s) <= MathHelper.EuclideanRange(s,otherWizard)
                             && MathHelper.EuclideanRange(s,wizard)>=AccioMinRange 
                             && MathHelper.EuclideanRange(s,wizard)<=AccioMaxRange 
                             && (s.X - wizard.X) * (s.X - Game.EnemyGoalCenter.x) > 0
-                            && MathHelper.EuclideanRange(wizard, s) <= MathHelper.EuclideanRange(otherWizard, s))
-                .OrderByDescending(s => MathHelper.EuclideanRange(s, wizard)).FirstOrDefault();
+                            && MathHelper.EuclideanRange(wizard,s) > state.OpponentWizards.Min(ow => MathHelper.EuclideanRange(ow,s)))
+                .OrderBy(s => MathHelper.EuclideanRange(s, wizard)).FirstOrDefault();
             if (res == null)
                 return (wizard, null);
             if (markedForAccioSnaffleId == int.MinValue)
