@@ -5,7 +5,7 @@ namespace ConsoleApplication2
     static class Game
     {
         private static Tuple<int, int> enemySide;
-        private static ILogic logic = new SimpleAI();
+        private static ILogic logic = new SimpleAi();
 
         public static void Main(string[] args)
         {
